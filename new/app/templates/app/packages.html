@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <link rel="shortcut icon" href="https://img.clipartxtras.com/d07d5bbe3a969e565ab17d5524cbfdee_emt-copy1-on-emaze-tourist-clipart-png_487-519.png">
+        
+        <title>
+            Tourism Hackathon
+        </title>
+        
+        <!--materailze class-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <!--bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            $( document ).ready(function(){
+                $(".button-collapse").sideNav();
+            });
+            /*
+            function tick(){
+                document.getElementById('cross').style.cssText = 'visibility: visible;';
+                document.getElementById('tick').style.cssText = 'visibility: hidden;';
+            }
+            function cross(){
+                document.getElementById('tick').style.cssText = 'visibility: visible;';
+                document.getElementById('cross').style.cssText = 'visibility: hidden;';
+            }*/
+            function showPopup(id){
+	            var popupdiv = document.getElementById(id);
+	            var overlay = document.getElementById('popupOverlay');
+	
+	            overlay.className = "popupOverlay open";
+	            popupdiv.className = "popup open";
+	
+            }
+            function hidePopup(){
+	            var overlay = document.getElementById('popupOverlay');
+	            var popups = document.getElementsByClassName('popup open');
+	            for(i=0;i<popups.length;i++){
+                    popups[i].className = "popup";
+	            }
+	
+                overlay.className = "popupOverlay";
+            }
+            </script>
+      <style>
+          .nav-wrapper a{
+              color: #999;
+              text-decoration: none;
+          }
+          .checked {
+            color: orange;
+          }
+          a:hover {
+              text-decoration:none;
+          }
+            .popupOverlay,
+            .popup{
+                transition:all .3s;
+            }
+            .popupOverlay, .popupOverlay1 {
+                position:fixed;
+                background:#f0f0f0;
+                width:100%;
+                height:100%;
+                left:0px;
+                top:0px;
+                z-index:998;
+                visibility: hidden;
+            }
+            .popupOverlay.open,
+            .popupOverlay1 open{
+                visibility:visible;
+                opacity:.5;
+            }
+            .popup{
+                position:absolute;
+                width: 70%;
+                height: 70%;
+                left: 15%;
+                padding-top: 3%;
+                border-radius:10px;
+                z-index:999;
+                visibility:hidden;
+                transform:scale(0,0);
+            }
+            .popup.open {
+                top:0%;
+                visibility:visible;
+                opacity:1;
+                transform:scale(1,1);
+            }
+          .login_popup{
+                margin: 0;
+                padding: 0%;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                border: 2px solid #ccc;
+                overflow: hidden;
+                font-family: 'Slabo 27px', serif;
+            }
+      </style>
+      <script src="https://360player.io/static/dist/scripts/embed.js" async></script>
+      <script>
+          var arr = [];
+          function addVal(asd) {
+              console.log(asd);
+              var tmp = "Yes." + asd;
+              var temp = tmp.split('.');
+              console.log(temp[0]);
+              if (temp[0] == 'Yes') {
+                  arr.push(document.getElementById(asd).value);
+                  alert(arr);
+              }
+          }
+          function datavalue() {
+              document.getElementById('arraylist1').value(arr);
+              return false;
+          }
+        </script>
+    </head>
+<body>
+        {% include 'app/loginpartial.html' %}
+        <!-- navbar end-->
+<script src="https://360player.io/static/dist/scripts/embed.js" async></script>
+        <center>
+            <span style="font-size: 20px;margin:1%;">Select the Packages according to the Interest Ratings and Effective Costs..!</span>
+            <a href="http://rtdc.tourism.rajasthan.gov.in/Client/HotelList.aspx"><span style="font-size:18px;color:#999;">Grab Latest Hotel Deals...!</span></a>
+        </center><br>
+    <form name="selectpackage" action="/outcome" method="post" onsubmit="return datavalue();">
+        {%csrf_token%}
+        {%for i in form%}
+     <!-- package display-->
+        <div style="margin:2%;margin-left:5%;overflow: hidden;height: 320px;border-bottom: 2px solid #eee;">
+            <div style="width: 55%;height: 70%; float: left;">
+                <iframe src="{{i.link}}" frameborder="0" width="100%" height="70%" allowfullscreen data-token="CvYgQJ"></iframe>
+                    <span style="font-size: 18px;">{{i.place_name.place_name}}, {{i.place_name.city_name.city_name}}</span><br>
+                
+                <!--description of city -->
+                <a class="waves-effect btn" onclick="alert('{{i.place_name.description}}');" style="color: #fff;margin-top: 1%;">View Description</a> 
+                
+                <!-- Maps-->
+                <a class="waves-effect btn" href="{{i.place_name.addres}}" target="_blank" style="color: #fff;margin-top: 1%;margin-left: 1%;">View Location</a>
+                
+                <!-- select option-->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <select onchange="addVal('{{i.place_name.place_name}}');" id="{{i.place_name.place_name}}" name="selectedpack" style="width:20%;float:right;" class="browser-default"">
+                    <option value="No.{{i.place_name.place_name}}">No</option>
+                    <option value="Yes.{{i.place_name.place_name}}">Yes</option>
+                </select>
+            </div>
+            <div style="width: 14%;float: left;margin-left: 2%;">
+                <span style="font-size: 20px;">Ratings</span>
+                <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                <hr width="100%;" align="left">
+                <!--ratings-->
+                <!-- Art rating-->
+                <span style="font-size: 18px;">Art &amp; Culture: <input type="text" disabled style="width: 30%;height: 30%;border: 0;color: #3c678c;text-align: left;font-size: 18px;" value='{{i.art}}/10'></span>
+                <!-- Adventure rating-->
+                <span style="font-size: 18px;">Adventure : <input type="text" disabled style="width: 30%;height: 10%;border: 0;color: #3c678c;text-align: left;font-size: 18px;" value='{{i.adventure}}/10'></span>
+                <!--Historical rating-->
+                <span style="font-size: 18px;">Historical : <input type="text" disabled style="width: 30%;height: 30%;border: 0;color: #3c678c;text-align: left;font-size: 18px;" value='{{i.religious}}/10'></span>
+                <!--Religious rating-->
+                <span style="font-size: 18px;">Religious : <input type="text" disabled style="width: 30%;height: 30%;border: 0;color: #3c678c;text-align: left;font-size: 18px;" value='{{i.historical}}/10'></span>
+                <!--Romantic rating-->
+                <span style="font-size: 18px;">Romantic : <input type="text" disabled style="width: 30%;height: 30%;border: 0;color: #3c678c;text-align: left;font-size: 18px;" value='{{i.romantic}}/10'></span>
+                
+            </div>
+            <!--cost and helpline-->
+            <div style="width: 20%;float: left;margin-left: 2%;">
+                <!-- helpline-->
+                <span style="font-size: 18px;">
+                    <i class="material-icons">call</i> {{i.place_name.phone}}<br>
+                    <i class="material-icons">access_time</i> {{i.place_name.open}} to {{i.place_name.close}}<br><br>
+                </span>
+                <span style="font-size: 18px;">Cost of packages</span>
+                <hr width="100%;" align="left">
+                <br><input type="text" disabled style="width: 30%;height: 10%;border: 0;color: #3c678c;text-align: right;font-size:18px;" value="Rs {{i.budget}}"> <span style="font-size: 18px;">&nbsp; for Indians.</span><br>
+                <input type="text" disabled style="width: 30%;height: 10%;border: 0;color: #3c678c;text-align: right;font-size:18px;" value="Rs {{i.budget_for}}"> <span style="font-size: 18px;"> &nbsp; for Foreigners.</span>
+            </div>
+        </div>
+
+        {%endfor%}
+        <input type="hidden" id="arraylist1" /><center>
+       <!-- <input type="submit" id="btn1" class="waves-effect btn #004d40 teal darken-4 btn-large" style="color: #fff;margin-top: 0%;font-size: 20px;" value="Submit">    </center><br />-->
+      </form>
+        <!-- footer-->
+        <footer class="page-footer #78909c blue-grey lighten-1">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Tourism Portal</h5>
+                <p class="grey-text text-lighten-4"> 
+                    Contact Us:-<br>
+                    Tourism Department<br>
+                    Delhi, India -110089
+                    +91-9876543210 <br>
+                    Email: info@tourismdept.org
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Important Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#">Tourism Dept</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Tourism Grants Commission</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">All India Council for Tourism Info.</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Tours</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">@
+    Copyright 2018
+            <a class="grey-text text-lighten-4 right" href="#"><i class="material-icons small">account_circle</i> Facebook</a>
+            </div>
+          </div>
+    </footer>
+</body></html>

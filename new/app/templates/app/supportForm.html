@@ -1,0 +1,17 @@
+﻿{% extends 'app/layout.html' %}
+{% block content %}
+{%for i in q%}
+<h3>Q:</h3>{{i.question}}<br />
+<h3>A:</h3>{{i.answer}}<br />
+{%endfor%}
+<form class="form-horizontal" role="form" action="/qanda" method="post">
+    {%csrf_token%}
+    {% include 'app/form_template.html' %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+
+</form>
+{%endblock%}

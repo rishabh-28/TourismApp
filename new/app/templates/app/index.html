@@ -1,0 +1,118 @@
+{% extends "app/layout.html" %}
+
+
+{% block content %}
+
+<!--form-->
+        <div>
+        <form method="post" name="indexform" action="/output" onsubmit="return validate();">
+             {%csrf_token%}
+	       <div class="row" style="margin: 1%;">
+                <div class="col-md-6">
+                    <fieldset><legend class="text-center">Enter Your Preferences and Package Type-</legend><br>
+                
+                <!--home state-->
+                    <div class="form-group">
+                        <label for="homestate"><span style="font-size: 18px;">Home State:</span> </label>
+                        <select name="homestate" class="browser-default">
+                        <option name="home" value="Bangalore">Bangalore</option>
+                        <option name="home" value="Chandigarh">Chandigarh</option>
+                        <option name="home" value="Chennai">Chennai</option>
+                        <option name="home" value="Mumbai">Mumbai</option>
+                        <option name="home" value="New Delhi">New Delhi</option>
+                        <option name="home" value="Kolkata">Kolkata</option>
+                    </select> 
+                    </div>
+                <!--State-->
+                    <div class="form-group">
+                        <label for="state"><span style="font-size: 18px;">Name of State:</span> </label>
+                        <select class="browser-default">
+                        <option name="state" value="Rajasthan">Rajasthan</option>
+                    </select> 
+                    </div>
+                <!--package-->
+                    <div class="form-group">
+                        <label for="package"><span style="font-size: 18px;">Package:</span> </label>
+                        <select name="homestate" class="browser-default">
+                        <option name="package" value="low" >Low</option>
+                        <option name="package" value="mid" >Mid</option>
+                        <option name="package" value="high" >High</option>
+                        </select> 
+                    </div><br>
+                    </fieldset>
+                    </div>
+            <!-- ends register form -->
+                    <div class="col-md-6" style="border-left: 1px solid #eee">
+                        <div class="form-group">
+                            <h4 class="page-header">Rate each of Your Interest</h4><hr>
+                            <!--interest-->
+                            <div style="overflow: hidden;">
+                                <div style="float: left;width: 49%;">
+                                    <label for="adventure"><span style="font-size: 18px;">Adventure:</span> </label>
+                                    <select name="option[]" id="adventure" class="browser-default">
+                                    <option>Enter Rating</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    </select>
+                                </div>
+                                <div style="float: right;width: 49%;">
+                                    <label for="art"><span style="font-size: 18px;">Art:</span> </label>
+                                    <select name="option[]" id="art" class="browser-default">
+                                    <option>Enter Rating</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <div style="overflow: hidden;">
+                                <div style="float: left;width: 49%;">
+                                    <label for="historical"><span style="font-size: 18px;">Historical:</span> </label>
+                                    <select name="option[]" id="historical" class="browser-default">
+                                    <option>Enter Rating</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    </select>
+                                </div>
+                                <div style="float: right;width: 49%;">
+                                    <label for="religious"><span style="font-size: 18px;">Religious:</span> </label>
+                                    <select name="option[]" id="religious" class="browser-default">
+                                    <option>Enter Rating</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <div style="overflow: hidden;">
+                                <div style="float: left;width: 49%;">
+                                    <label for="romantic"><span style="font-size: 18px;">Romantic:</span> </label>
+                                    <select name="option[]" id="romantic" class="browser-default">
+                                    <option>Enter Rating</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submitButton" action="submit">
+                        </div><br></div>
+	           </div>
+            </form>
+            </div>
+        <!-- form ended-->
+{% endblock %}

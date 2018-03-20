@@ -1,0 +1,35 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+    <form class="form-horizontal" role="form" action="/feedback_output" method="post">
+        {%csrf_token%}
+        {% include 'app/form_template.html' %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+  <!--    <label>State</label>  <select name="state"></br>
+  <option value="Rajasthan">Rajasthan</option>
+</select>
+     <label>Place</label>  <select name="place">
+     <option value="Ajmer Sharif Dargah">Ajmer Sharif Dargah</option>
+     <option value="Rajasthan">2</option>
+     <option value="Rajasthan">3</option>
+     <option value="Rajasthan">4</option>
+     <option value="Rajasthan">5</option>
+</select></br>
+     <label>Art</label> 
+        <input type="number" min="1" max="10" name="art"/></br>
+     <label>Adventure</label>    
+        <input type="number" min="1" max="10" name="adventure" /></br>
+     <label>Historical</label>    
+        <input type="number" min="1" max="10" name="historical"/></br>
+     <label>Religious</label>   
+        <input type="number" min="1" max="10" name="religious" /></br>
+     <label>Romantic</label>   
+        <input type="number" min="1" max="10" name="romantic"/></br>
+     <label>Budget</label>
+        <input type="number" min="1" name="budget"/></br>-->
+    </form>
+{% endblock %}

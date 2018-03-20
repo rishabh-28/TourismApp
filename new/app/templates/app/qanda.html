@@ -1,0 +1,9 @@
+﻿{% extends 'app/layout.html' %}
+{% block content %}
+
+    {%for i in q%}
+        <h3>Q:</h3>{{i.question}}
+        <h3>A:</h3>{{i.answer}}
+        <br />
+    {%endfor%}
+{%endblock%}

@@ -1,0 +1,51 @@
+{% if user.is_authenticated %}
+<form id="logoutForm" action="/logout" method="post">
+    {% csrf_token %}
+    <nav>
+        <div class="nav-wrapper #ffffff white">&nbsp;&nbsp;&nbsp;
+            <a href="/home" class="brand-logo">
+                  <i class="material-icons">place</i>
+                  Tourism
+            </a>
+        <a href="/home" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li style="color:#999;"><a href="/contact">Hello {{ user.username }}!</a></li>
+        <li><a href="/feedback">Feedback!</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li></ul>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/support1">Support</a></li>
+        <li style="color:#999;"><a href="/"> Hello {{ user.username }}!</a></li>
+        <li><a href="/feedback">Feedback!</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li></ul>
+        </div></nav><br><br>
+</form>
+
+{% else %}
+<nav>
+    <div class="nav-wrapper #ffffff white">&nbsp;&nbsp;&nbsp;
+        <a href="/home" class="brand-logo">
+                <i class="material-icons">place</i>
+                Tourism
+        </a>
+    <a href="/home" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+        <li><a href="{% url 'login' %}">Log in</a></li></ul>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+        <li><a href="{% url 'login' %}">Log in</a></li></ul>
+        </div></nav><br><br>
+
+{% endif %}

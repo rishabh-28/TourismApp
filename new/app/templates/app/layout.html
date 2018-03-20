@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="https://img.clipartxtras.com/d07d5bbe3a969e565ab17d5524cbfdee_emt-copy1-on-emaze-tourist-clipart-png_487-519.png">
+        
+        <title>
+            Tourism Hackathon
+        </title>
+        
+        <!--materailze class-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
+        <!-- script added-->
+        <!--bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+            $( document ).ready(function(){
+                $(".button-collapse").sideNav();
+            })
+        </script>
+      <style>
+          .nav-wrapper a{
+              color: #999;
+              text-decoration: none;
+          }
+          
+      </style>
+        <script>
+            function validate() {
+                var Adventure = document.getElementById("adventure").value;
+                var Art = document.getElementById("art").value;
+                var Historical = document.getElementById("historical").value;
+                var Religious = document.getElementById("religious").value;
+                var Romantic = document.getElementById("romantic").value;
+                if (Adventure == "Enter Rating" || Art == "Enter Rating" || Historical == "Enter Rating" || Religious == "Enter Rating" || Romantic == "Enter Rating") {
+                    alert("Enter Preference");
+                    document.forms["indexform"]["adventure"].focus();
+                    return false;
+                }
+                if (Adventure == Art || Adventure == Historical || Adventure == Religious || Adventure == Romantic || Art == Historical || Art == Religious || Art == Romantic || Historical == Religious || Historical == Romantic || Religious == Romantic) {
+                    alert("Enter Unique Preference for Each Interest");
+                    return false;
+                }
+            }
+        </script>
+</head>
+
+<body>
+    <!--navbar-->
+        {% include 'app/loginpartial.html' %}
+            
+        
+        
+        <!-- navbar end-->
+
+   <!-- <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>-->
+
+{% block content %}
+        
+{% endblock %}
+        
+        
+        <hr/>
+        <!-- footer-->
+        <footer class="page-footer #78909c blue-grey lighten-1">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Tourism Portal</h5>
+                <p class="grey-text text-lighten-4"> 
+                    Contact Us:-<br>
+                    Tourism Department<br>
+                    Delhi, India -110089
+                    +91-9876543210 <br>
+                    Email: info@tourismdept.org
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Important Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#">Tourism Dept</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Tourism Grants Commission</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">All India Council for Tourism Info.</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Tours</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">@
+    Copyright 2018
+            <a class="grey-text text-lighten-4 right" href="#"><i class="material-icons small">account_circle</i> Facebook</a>
+            </div>
+          </div>
+    </footer>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

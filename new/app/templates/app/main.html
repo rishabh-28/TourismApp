@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <link rel="shortcut icon" href="https://img.clipartxtras.com/d07d5bbe3a969e565ab17d5524cbfdee_emt-copy1-on-emaze-tourist-clipart-png_487-519.png">
+        
+        <title>
+            Tourism Hackathon
+        </title>
+        
+        <!--materailze class-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <!-- script added-->
+        <script src="javascript/script.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.carousel.carousel-slider').carousel({fullWidth: true});
+                autoplay()
+                function autoplay() {
+                $('.carousel').carousel('next');
+                setTimeout(autoplay, 5000);
+            }
+            });
+        </script>
+        
+    </head>
+    <body>
+        <div class="carousel carousel-slider" style="margin-bottom:1%;">
+            <a class="carousel-item" href="#one!"><img src="http://tourism.rajasthan.gov.in/content/dam/rajasthan-tourism/english/homepage/topslider/mewar-festival-2018.png"></a>
+            <a class="carousel-item" href="#two!"><img src="http://tourism.rajasthan.gov.in/content/dam/rajasthan-tourism/english/homepage/topslider/gangaur-festival-2018.png"></a>
+            <a class="carousel-item" href="#three!"><img src="http://tourism.rajasthan.gov.in/content/dam/rajasthan-tourism/english/homepage/topslider/Rajasthan%20Day%202018.png"></a>
+            <a class="carousel-item" href="#four!"><img src="http://tourism.rajasthan.gov.in/content/dam/rajasthan-tourism/english/homepage/topslider/Calendar.png"></a>
+        </div>
+        <center>
+        <span style="font-size:32px;color:#3c678c;">Rajasthan Tourism...</span>
+            <a style="font-family: GillSans, Calibri, Trebuchet, sans-serif;font-size: 22px;color: #666;" href="/home">Go to Home Page...</a>
+            </center>
+    </body>
+</html>
